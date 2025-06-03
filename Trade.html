@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navigating the Transatlantic Trade Turmoil: An Infographic</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 350px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 400px;
+            }
+        }
+        .flow-chart-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .flow-chart-row {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+        }
+        .flow-chart-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            width: 80%;
+            max-width: 250px; 
+            margin-bottom: 2.5rem; /* Space for arrow */
+        }
+        .flow-chart-item:not(:last-child)::after { /* Vertical arrow for mobile/stacked */
+            content: '↓';
+            font-size: 2rem;
+            color: #003B73; /* Using a palette color */
+            position: absolute;
+            left: 50%;
+            bottom: -2rem; /* Adjusted position */
+            transform: translateX(-50%);
+        }
+
+        @media (min-width: 1024px) { /* lg breakpoint in Tailwind */
+            .flow-chart-container {
+                flex-direction: row;
+                justify-content: space-around;
+                align-items: flex-start; /* Align items to the top */
+            }
+            .flow-chart-row {
+                 flex-direction: row;
+                 justify-content: space-around;
+                 width: auto; /* Adjust as needed */
+            }
+            .flow-chart-item {
+                width: 22%; /* Adjust for 4 items in a row */
+                margin-bottom: 0; /* Remove bottom margin for horizontal layout */
+                margin-right: 2.5rem; /* Space for horizontal arrow */
+            }
+            .flow-chart-item:last-child {
+                margin-right: 0;
+            }
+            .flow-chart-item:not(:last-child)::after { /* Horizontal arrow for desktop */
+                content: '→';
+                left: auto; /* Reset left for horizontal */
+                right: -2rem; /* Position to the right */
+                top: 50%;
+                bottom: auto; /* Reset bottom for horizontal */
+                transform: translateY(-50%);
+            }
+            .flow-chart-item:last-child::after {
+                 content: ''; /* No arrow after the last item */
+            }
+        }
+        .swot-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+        }
+        @media (min-width: 768px) {
+            .swot-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+         .swot-item {
+            padding: 1rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800">
+
+    <header class="bg-[#003B73] text-white p-6 sm:p-8 text-center shadow-lg">
+        <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-2">Navigating the Transatlantic Trade Turmoil</h1>
+        <p class="text-lg sm:text-xl text-[#60A5FA]">An Infographic on the EU's Strategic Response to US Tariffs</p>
+        <p class="text-lg sm:text-xl text-[#60A5FA]">Created with Gemini AI by Steven James Coker</p>
+    </header>
+
+    <main class="container mx-auto p-4 md:p-8">
+
+        <section id="introduction" class="mb-12">
+            <div class="bg-white rounded-lg shadow-xl p-6 md:p-8">
+                <h2 class="text-2xl md:text-3xl font-bold text-[#003B73] mb-4">The Resurgence of Transatlantic Trade Tensions</h2>
+                <p class="mb-4 text-gray-700">The imposition of significant tariffs by the United States under a renewed "America First" trade policy has reignited transatlantic trade tensions. Between late 2024 and mid-2025, the global trade landscape has seen the average effective US tariff rate surge dramatically, compelling the European Union to devise robust strategies to safeguard its economic interests and uphold the multilateral trading system. This infographic visualizes the key aspects of this conflict, from the US measures to the EU's multifaceted response and the potential economic impacts.</p>
+                <div class="bg-gray-50 rounded-lg p-6 my-6 border border-[#60A5FA]">
+                    <div class="text-center">
+                        <p class="text-lg text-[#0074D9] font-semibold">Average Effective US Tariff Rate on Goods from EU</p>
+                        <p class="text-5xl md:text-6xl font-bold text-[#BF1E2E] my-2">~15-20%*</p>
+                        <p class="text-md text-gray-500">(Projected average by mid-2025, considering various announced tariffs, up from ~3% in early 2024)</p>
+                        <p class="text-xs text-gray-400 mt-2">*Exact figure varies based on product mix and final implementation of threatened tariffs.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="us-offensive" class="mb-12">
+             <h2 class="text-3xl font-bold text-[#003B73] mb-6 text-center">The US Tariff Offensive</h2>
+             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+                <div class="bg-white rounded-lg shadow-xl p-6">
+                    <h3 class="text-xl font-semibold text-[#003B73] mb-4">Key US Tariff Measures Affecting the EU</h3>
+                    <p class="mb-4 text-gray-600">The US administration has announced or implemented a series of steep tariffs impacting a wide array of EU goods. This includes a potential universal baseline tariff, "reciprocal tariffs" targeting specific imbalances, and sector-specific duties.</p>
+                    <div class="chart-container h-96 md:h-[450px]">
+                        <canvas id="usTariffsChart"></canvas>
+                    </div>
+                    <p class="text-sm text-gray-500 mt-4 text-center">Illustrative US tariff rates announced or threatened against EU goods by mid-2025.</p>
+                </div>
+
+                <div class="bg-white rounded-lg shadow-xl p-6">
+                    <h3 class="text-xl font-semibold text-[#003B73] mb-4">Stated Justifications for US Tariffs</h3>
+                    <p class="mb-6 text-gray-600">The US administration cites several reasons for these protectionist measures, fundamentally challenging the established global trade norms.</p>
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <span class="text-3xl text-[#0074D9] mr-3 mt-1">🛡️</span>
+                            <div>
+                                <h4 class="font-semibold text-lg">National Security</h4>
+                                <p class="text-gray-600 text-sm">Invoking Section 232 (e.g., steel, aluminum) and other statutes, claiming reliance on imports in certain sectors poses a security risk.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                             <span class="text-3xl text-[#0074D9] mr-3 mt-1">⚖️</span>
+                            <div>
+                                <h4 class="font-semibold text-lg">Trade Imbalances & Unfair Practices</h4>
+                                <p class="text-gray-600 text-sm">Aiming to correct bilateral trade deficits and counter perceived unfair trade practices by other nations, including the EU.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                             <span class="text-3xl text-[#0074D9] mr-3 mt-1">🏭</span>
+                            <div>
+                                <h4 class="font-semibold text-lg">Protecting Domestic Industries</h4>
+                                <p class="text-gray-600 text-sm">Seeking to shield US manufacturers and workers from foreign competition and encourage reshoring of production.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-3xl text-[#0074D9] mr-3 mt-1">🤝</span>
+                            <div>
+                                <h4 class="font-semibold text-lg">Leverage for New Deals</h4>
+                                <p class="text-gray-600 text-sm">Using tariffs as a coercive tool to pressure trading partners into negotiating new agreements more favorable to US interests.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="eu-response" class="mb-12">
+            <h2 class="text-3xl font-bold text-[#003B73] mb-6 text-center">The EU's Strategic & Layered Response</h2>
+            <div class="bg-white rounded-lg shadow-xl p-6 md:p-8">
+                <p class="text-center text-gray-700 text-lg mb-8 max-w-3xl mx-auto">Faced with significant trade pressure, the EU is activating a comprehensive strategy. This approach combines immediate defensive actions with long-term measures to enhance resilience and assert its interests on the global stage. The core pillars are: </p>
+                <div class="flow-chart-container">
+                    <div class="flow-chart-item bg-[#E0F2FE] p-4 rounded-lg border-2 border-[#60A5FA]">
+                         <span class="text-4xl mb-2">💬</span>
+                        <h4 class="font-semibold text-lg text-[#003B73]">Diplomatic Negotiations</h4>
+                        <p class="text-xs text-gray-600">Seeking dialogue, de-escalation, and mutually acceptable solutions; offering "zero-for-zero" tariffs on industrial goods.</p>
+                    </div>
+                    <div class="flow-chart-item bg-[#E0F2FE] p-4 rounded-lg border-2 border-[#60A5FA]">
+                        <span class="text-4xl mb-2">🏛️</span>
+                        <h4 class="font-semibold text-lg text-[#003B73]">Legal Challenges (WTO)</h4>
+                        <p class="text-xs text-gray-600">Contesting US tariffs at the World Trade Organization, upholding international trade law despite WTO challenges.</p>
+                    </div>
+                    <div class="flow-chart-item bg-[#E0F2FE] p-4 rounded-lg border-2 border-[#60A5FA]">
+                        <span class="text-4xl mb-2">🛡️</span>
+                        <h4 class="font-semibold text-lg text-[#003B73]">Countermeasures & Deterrence</h4>
+                        <p class="text-xs text-gray-600">Preparing targeted retaliatory tariffs on US goods and utilizing tools like the Anti-Coercion Instrument (ACI).</p>
+                    </div>
+                    <div class="flow-chart-item bg-[#E0F2FE] p-4 rounded-lg border-2 border-[#60A5FA]">
+                        <span class="text-4xl mb-2">🌍</span>
+                        <h4 class="font-semibold text-lg text-[#003B73]">Diversification & Alliances</h4>
+                        <p class="text-xs text-gray-600">Strengthening trade ties with other partners (e.g., CPTPP, India, ASEAN) and building coalitions of like-minded countries.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="eu-tools" class="mb-12">
+            <h2 class="text-3xl font-bold text-[#003B73] mb-6 text-center">Key EU Levers & Strengths (SWOT Elements)</h2>
+             <div class="bg-white rounded-lg shadow-xl p-6 md:p-8">
+                 <p class="text-center text-gray-700 text-lg mb-8 max-w-3xl mx-auto">The EU possesses significant assets in navigating this trade conflict, alongside potential vulnerabilities. Understanding these is key to assessing its strategic options.</p>
+                <div class="swot-grid">
+                    <div class="swot-item bg-green-100 border-l-4 border-green-500">
+                        <h3 class="font-bold text-xl text-green-700 mb-2">Strengths 💪</h3>
+                        <ul class="list-disc list-inside text-green-700 space-y-1 text-sm">
+                            <li>Large, unified Single Market (significant economic weight).</li>
+                            <li>Established trade defense instruments & legal expertise.</li>
+                            <li>Credibility in upholding rules-based order.</li>
+                            <li>Potential for targeted and impactful retaliation.</li>
+                            <li>High level of internal EU unity shown in past disputes.</li>
+                        </ul>
+                    </div>
+                    <div class="swot-item bg-red-100 border-l-4 border-red-500">
+                        <h3 class="font-bold text-xl text-red-700 mb-2">Weaknesses 📉</h3>
+                        <ul class="list-disc list-inside text-red-700 space-y-1 text-sm">
+                            <li>Decision-making can be slower due to 27 member states.</li>
+                            <li>Varying economic dependencies on the US among members.</li>
+                            <li>Exposure in specific sectors (e.g., automotive).</li>
+                            <li>WTO dispute settlement mechanism is currently impaired.</li>
+                        </ul>
+                    </div>
+                    <div class="swot-item bg-blue-100 border-l-4 border-blue-500">
+                        <h3 class="font-bold text-xl text-blue-700 mb-2">Opportunities 🚀</h3>
+                        <ul class="list-disc list-inside text-blue-700 space-y-1 text-sm">
+                            <li>Strengthen strategic autonomy and resilience.</li>
+                            <li>Accelerate diversification of supply chains & markets.</li>
+                            <li>Forge stronger alliances with other trade partners.</li>
+                            <li>Lead in reforming and strengthening the WTO.</li>
+                            <li>Boost internal EU investment in key strategic sectors.</li>
+                        </ul>
+                    </div>
+                    <div class="swot-item bg-yellow-100 border-l-4 border-yellow-500">
+                        <h3 class="font-bold text-xl text-yellow-700 mb-2">Threats 🌪️</h3>
+                        <ul class="list-disc list-inside text-yellow-700 space-y-1 text-sm">
+                            <li>Escalation into a broader, damaging trade war.</li>
+                            <li>Erosion of the multilateral trading system.</li>
+                            <li>Negative impact on EU economic growth and employment.</li>
+                            <li>Geopolitical instability and strained transatlantic relations.</li>
+                            <li>US actions inspiring similar protectionism elsewhere.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <section id="economic-impact" class="mb-12">
+            <h2 class="text-3xl font-bold text-[#003B73] mb-6 text-center">Projected Economic Impacts & Vulnerabilities</h2>
+            <p class="text-center text-gray-700 text-lg mb-8 max-w-3xl mx-auto">Economic models project varying consequences. While a full-blown trade war would harm all parties, the EU aims to minimize damage through strategic responses. Projections highlight GDP impacts, shifts in trade flows, and varying levels of exposure across EU member states and sectors.</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+                 <div class="bg-white rounded-lg shadow-xl p-6">
+                    <h3 class="text-xl font-semibold text-[#003B73] mb-4">Estimated GDP Impact (Full Retaliation Scenario)</h3>
+                    <p class="mb-4 text-gray-600">In a scenario where US tariffs are met with proportional EU retaliation, both economies face GDP contractions. Estimates suggest the US might see a slightly larger relative impact.</p>
+                    <div class="chart-container h-80 md:h-96">
+                        <canvas id="gdpImpactChart"></canvas>
+                    </div>
+                    <p class="text-sm text-gray-500 mt-4 text-center">Source: Aggregated estimates based on PIIE & Bruegel analyses (illustrative).</p>
+                 </div>
+
+                 <div class="bg-white rounded-lg shadow-xl p-6">
+                    <h3 class="text-xl font-semibold text-[#003B73] mb-4">Projected Change in Bilateral Trade Flows</h3>
+                    <p class="mb-4 text-gray-600">Retaliatory tariffs significantly alter trade dynamics. US exports to the EU could face substantial declines, potentially more than EU exports to the US if EU countermeasures are broad and effective.</p>
+                     <div class="chart-container h-80 md:h-96">
+                        <canvas id="tradeFlowsChart"></canvas>
+                    </div>
+                    <p class="text-sm text-gray-500 mt-4 text-center">Illustrative range of decline if significant tariffs and counter-tariffs are applied.</p>
+                 </div>
+
+                 <div class="bg-white rounded-lg shadow-xl p-6 md:col-span-2">
+                    <h3 class="text-xl font-semibold text-[#003B73] mb-4">Sectoral & Member State Exposure</h3>
+                    <p class="mb-4 text-gray-600">The impact of US tariffs is not uniform across the EU. Certain sectors (e.g., automotive, machinery, agri-food) and member states with high export dependence on the US in these areas are more exposed. The chart below indicates relative export value at risk for key EU economies if broad US auto tariffs (e.g., 25%) were imposed, as an example of sectoral vulnerability.</p>
+                    <div class="chart-container h-96 md:h-[450px]">
+                        <canvas id="memberStateVulnerabilityChart"></canvas>
+                    </div>
+                    <p class="text-sm text-gray-500 mt-4 text-center">Illustrative relative export value at risk from US auto tariffs for selected EU countries (higher score = greater exposure).</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="future-outlook" class="mb-12">
+            <h2 class="text-3xl font-bold text-[#003B73] mb-6 text-center">Future Outlook: Potential Scenarios</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                 <div class="bg-white rounded-lg shadow-xl p-6 text-center border-t-4 border-green-500">
+                    <h3 class="text-xl font-semibold text-green-600 mb-3">Optimistic: Negotiated De-escalation</h3>
+                    <p class="text-gray-600 text-sm">Dialogue prevails, leading to a mutual rollback or significant reduction of tariffs. May involve some concessions but largely preserves EU interests and strengthens rules-based trade. <br><strong>Likelihood: Moderate</strong></p>
+                </div>
+                <div class="bg-white rounded-lg shadow-xl p-6 text-center border-t-4 border-yellow-500">
+                    <h3 class="text-xl font-semibold text-yellow-600 mb-3">Pragmatic: Protracted Standoff</h3>
+                    <p class="text-gray-600 text-sm">Some US tariffs remain. EU employs countermeasures selectively, focusing on deterrence and limiting damage. Ongoing tensions, but contained. EU accelerates diversification. <br><strong>Likelihood: High</strong></p>
+                </div>
+                <div class="bg-white rounded-lg shadow-xl p-6 text-center border-t-4 border-red-500">
+                    <h3 class="text-xl font-semibold text-red-600 mb-3">Pessimistic: Full Escalation</h3>
+                    <p class="text-gray-600 text-sm">Tit-for-tat tariff war intensifies across many sectors. Severe economic disruption for EU, US, and global economy. WTO system further undermined. <br><strong>Likelihood: Low</strong></p>
+                </div>
+            </div>
+        </section>
+
+        <section id="conclusion" class="mb-12">
+            <div class="bg-[#003B73] text-white rounded-lg shadow-xl p-6 md:p-8 text-center">
+                <h2 class="text-2xl md:text-3xl font-bold mb-4">Conclusion: A Test of EU Resilience & Unity</h2>
+                <p class="mb-4 text-lg text-gray-200">The current trade tensions represent a significant challenge to the European Union. Its ability to navigate this period through a united, strategic, and firm response will be crucial not only for its economic prosperity but also for its role as a global actor and a defender of the multilateral trading system. The path ahead requires careful calibration of all available tools, from diplomacy to assertive trade defense.</p>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-[#002147] text-gray-300 p-6 text-center mt-12 border-t-2 border-[#60A5FA]">
+        <p class="text-sm">Infographic based on analysis of EU strategies in response to hypothetical US trade measures as of mid-2025.</p>
+        <p class="text-xs mt-1">Data points are illustrative and synthesized from common themes in trade policy analysis.</p>
+        <p class="text-xs mt-2">&copy; June 2025. For informational purposes only.</p>
+    </footer>
+
+    <script>
+        const palette = {
+            primaryDark: '#003B73',
+            primaryBright: '#0074D9',
+            accentLight: '#60A5FA',
+            dangerRed: '#BF1E2E',
+            neutralGrey: '#4A5568',
+            lightBg: '#F0F8FF',
+            successGreen: '#28A745',
+            warningYellow: '#FFC107'
+        };
+
+        const chartTooltipOptions = {
+            plugins: {
+                tooltip: {
+                    callbacks: {
+                        title: function(tooltipItems) {
+                            const item = tooltipItems[0];
+                            if (!item || !item.chart || !item.chart.data || !item.chart.data.labels) return '';
+                            let label = item.chart.data.labels[item.dataIndex];
+                            if (Array.isArray(label)) {
+                              return label.join(' ');
+                            } else {
+                              return label;
+                            }
+                        }
+                    }
+                }
+            }
+        };
+        
+        function wrapLabel(label, maxLength = 16) {
+            if (typeof label !== 'string') {
+                 if (Array.isArray(label)) return label; // Already wrapped
+                 return String(label); // Convert to string if not already
+            }
+            if (label.length <= maxLength) {
+                return label;
+            }
+            const words = label.split(' ');
+            let lines = [];
+            let currentLine = '';
+            words.forEach(word => {
+                if (currentLine.length + word.length + (currentLine.length > 0 ? 1 : 0) > maxLength) {
+                    if(currentLine.length > 0) lines.push(currentLine.trim());
+                    currentLine = word;
+                } else {
+                    if (currentLine.length > 0) currentLine += ' ';
+                    currentLine += word;
+                }
+            });
+            if (currentLine.length > 0) lines.push(currentLine.trim());
+            return lines.length > 0 ? lines : [label]; // Ensure it returns an array even if only one line
+        }
+
+
+        const usTariffsCtx = document.getElementById('usTariffsChart').getContext('2d');
+        new Chart(usTariffsCtx, {
+            type: 'bar',
+            data: {
+                labels: [
+                    wrapLabel('Baseline Universal Tariff'), 
+                    wrapLabel('Reciprocal Tariff (Average)'), 
+                    wrapLabel('Steel Sector Tariff'), 
+                    wrapLabel('Aluminum Sector Tariff'), 
+                    wrapLabel('Autos & Parts (Threatened)'), 
+                    wrapLabel('Digital Services Tax Retaliation')
+                ],
+                datasets: [{
+                    label: 'US Tariff Rates (%)',
+                    data: [10, 15, 25, 10, 25, 25], // Example data
+                    backgroundColor: [
+                        palette.primaryBright,
+                        palette.accentLight,
+                        palette.neutralGrey,
+                        palette.primaryDark,
+                        palette.dangerRed,
+                        palette.warningYellow
+                    ],
+                    borderColor: '#ffffff',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                indexAxis: 'y',
+                plugins: {
+                    ...chartTooltipOptions.plugins,
+                    legend: { display: false },
+                    title: { display: true, text: 'Illustrative US Tariff Rates on EU Goods', font: {size: 14}}
+                },
+                scales: {
+                    x: {
+                        beginAtZero: true,
+                        title: { display: true, text: 'Tariff Rate (%)' }
+                    },
+                    y: {
+                         ticks: { autoSkip: false }
+                    }
+                }
+            }
+        });
+
+        const gdpImpactCtx = document.getElementById('gdpImpactChart').getContext('2d');
+        new Chart(gdpImpactCtx, {
+            type: 'doughnut',
+            data: {
+                labels: [wrapLabel('EU Projected GDP Impact'), wrapLabel('US Projected GDP Impact')],
+                datasets: [{
+                    label: 'Projected GDP Drop (%)',
+                    data: [0.4, 0.6], // Example data from PIIE/Bruegel context
+                    backgroundColor: [palette.primaryBright, palette.dangerRed],
+                    hoverOffset: 4
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    ...chartTooltipOptions.plugins,
+                    legend: { position: 'bottom' },
+                    title: { display: true, text: 'GDP Impact (Full Retaliation)', font: {size: 14}}
+                },
+                cutout: '60%'
+            }
+        });
+
+        const tradeFlowsCtx = document.getElementById('tradeFlowsChart').getContext('2d');
+        new Chart(tradeFlowsCtx, {
+            type: 'bar',
+            data: {
+                labels: [wrapLabel('EU Exports to US'), wrapLabel('US Exports to EU')],
+                datasets: [
+                {
+                    label: 'Min Projected Decline (%)',
+                    data: [5, 15], // Example data
+                    backgroundColor: palette.accentLight,
+                }, 
+                {
+                    label: 'Max Projected Decline (%)',
+                    data: [10, 30], // Example data
+                    backgroundColor: palette.primaryBright,
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                     ...chartTooltipOptions.plugins,
+                     title: { display: true, text: 'Range of Bilateral Export Decline (%)', font: {size: 14}},
+                     legend: { position: 'bottom' }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: { display: true, text: 'Projected Decline (%)' }
+                    }
+                }
+            }
+        });
+
+        const memberStateVulnerabilityCtx = document.getElementById('memberStateVulnerabilityChart').getContext('2d');
+        new Chart(memberStateVulnerabilityCtx, {
+            type: 'radar',
+            data: {
+                labels: [
+                    wrapLabel('Germany (Autos, Machinery)'), 
+                    wrapLabel('Ireland (Pharma, Agri-food)'), 
+                    wrapLabel('Italy (Luxury, Machinery)'), 
+                    wrapLabel('France (Aerospace, Agri-food)'), 
+                    wrapLabel('Spain (Agri-food, Autos)'), 
+                    wrapLabel('Netherlands (Chemicals, Agri-food)')
+                ],
+                datasets: [{
+                    label: 'Relative Export Value at Risk Index',
+                    data: [85, 70, 65, 60, 55, 50], // Example data
+                    fill: true,
+                    backgroundColor: 'rgba(0, 116, 217, 0.2)', // primaryBright with alpha
+                    borderColor: palette.primaryBright,
+                    pointBackgroundColor: palette.primaryBright,
+                    pointBorderColor: '#fff',
+                    pointHoverBackgroundColor: '#fff',
+                    pointHoverBorderColor: palette.primaryBright
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    ...chartTooltipOptions.plugins,
+                    legend: { display: true, position: 'bottom' },
+                    title: { display: true, text: 'Illustrative Member State Export Exposure', font: {size: 14}}
+                },
+                elements: {
+                    line: { borderWidth: 2 }
+                },
+                scales: {
+                    r: {
+                        angleLines: { display: false },
+                        suggestedMin: 0,
+                        suggestedMax: 100,
+                        ticks: { backdropColor: 'transparent', stepSize: 20 },
+                        pointLabels: { font: { size: 10 } }
+                    }
+                }
+            }
+        });
+
+    </script>
+</body>
+</html>
